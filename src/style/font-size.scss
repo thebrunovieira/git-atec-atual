@@ -1,0 +1,26 @@
+/*
+    --------------------------------------------------------------------
+    FONT-SIZE
+*/
+$fontsizeMap:
+'mini' 1.2rem,
+'default' 1.6rem,
+'subtitle' 2rem,
+'title' 2.4rem;
+
+$boldMap:
+'extralight' 300,
+'light' 400,
+'regular' 500,
+'bold' 600,
+'extrabold' 700;
+
+@each $fontsizeName, $fontsize in $fontsizeMap {
+    .font-#{$fontsizeName} {
+        font-size: $fontsize;
+
+        @each $boldName, $bold in $boldMap {
+            &.#{$boldName} { font-weight: $bold; }
+        }
+    }
+}

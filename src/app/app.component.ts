@@ -1,3 +1,4 @@
+import { LoginService } from './views/login/login.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'frontend';
+  
+  constructor(
+    private login: LoginService
+  ) {}
+    
+  loged() {
+    if (this.login.getUserLoged()) return true;
+    return false;
+  }
+  
 }

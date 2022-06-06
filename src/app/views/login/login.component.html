@@ -1,0 +1,42 @@
+<main id="login" class="flex-center">
+
+    <section class="login-box flex-column align-items-center
+    background-prime-dark">
+
+        <h1 class="font-title regular color-white">CGE Amazonas</h1>
+        <p class="font-default regular color-white">Controladoria Geral do Estado</p>
+
+        <form class="login-form flex-column">
+
+            <my-input [key]="login.user" [color]="'white'" [placeholder]="'000.000.000-00'">
+                <i class="material-icons fill-300">person</i>
+                CPF
+            </my-input>
+
+            <my-input [key]="login.password" [type]="'password'" [color]="'white'">
+                <i class="material-icons fill-300">key</i>
+                Senha
+            </my-input>
+
+            <div *ngIf="!loginError" class="login-error flex-center">
+                <p class="font-default bold">* Usuário ou Senha invalidas *</p>
+            </div>
+
+            <div class="forgot-box flex just-content-end">
+                <a href="#" class="forgot-link
+                font-mini color-white">Esqueceu sua senha?</a>
+            </div>
+
+        </form>
+        
+        <button type="submit" [disabled]="toDisabled()" (click)="onSubmit()"
+        class="my-button{{ toDisabled() ? '-disabled' : '' }} white hover-prime-dark
+        font-default bold">
+            Entrar
+        </button>
+
+    </section>
+
+</main>
+
+<app-footer></app-footer>

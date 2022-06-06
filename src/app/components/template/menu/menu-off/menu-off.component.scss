@@ -1,0 +1,135 @@
+@import '/src/style/template.scss';
+
+$height-menu: 3.2rem;
+
+#menu-off {
+    position: fixed;
+    width: 100%;
+    height: $height-menu;
+
+    z-index: 100;
+
+    box-sizing: border-box;
+    padding: 0 8rem;
+
+    ul { list-style: none; }
+
+    .menu-pages, .account {
+        position: relative;
+
+        gap:$height-menu;
+
+        .option {
+            position: relative;
+
+            height:$height-menu;
+
+            .option-link {
+                position: relative;
+                width: 100%;
+                height: 100%;
+
+                text-decoration: none;
+
+                &::after {
+                    position: absolute;
+                    content: '';
+
+                    width: 0;
+                    height: .2rem;
+                    display: flex;
+
+                    top: calc($height-menu - .4rem);
+
+                    background-color: white;
+
+                    border-radius: .4px;
+
+                    transition: width .3s ease-in-out;
+                }
+            } &:hover .option-link::after {
+                width: 100%;
+            }
+            .config { width: auto; }
+
+            .option-box {
+                width: 100%;
+                height: 100%;
+
+                .image-profile-box {
+                    width:$height-menu;
+                    height:$height-menu;
+
+                    margin-left: 1.2rem;
+
+                    border-radius: 50%;
+
+                    .image-profile {
+                        width: 100%;
+                        height: 100%;
+
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+
+        .account .option-box:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+
+        .submenu {
+            position: absolute;
+            overflow-y: hidden;
+
+            min-width: 100%;
+            
+            top:100%;
+
+            height: 0;
+            padding: 0 1.2rem;
+
+            transition: all .3s ease-in-out;
+
+            .suboption {
+                width: 100%;
+
+                height:$height-menu;
+
+                // background-color: yellow;
+
+                // box-sizing: border-box;
+                // padding-top: 2.4rem;
+
+                .suboption-link {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+
+                    text-decoration: none;
+
+                    &::after {
+                        position: absolute;
+                        content: '';
+    
+                        width: 0;
+                        height: .2rem;
+                        display: flex;
+    
+                        top: calc($height-menu - .4rem);
+    
+                        background-color: white;
+    
+                        transition: width .3s ease-in-out;
+                    } &:hover::after {
+                        width: 100%;
+                    }
+
+                    i { margin-right: .6rem; }
+                }
+            }
+        }
+    }
+}

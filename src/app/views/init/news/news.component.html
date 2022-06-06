@@ -1,0 +1,35 @@
+<main id="news" class="page flex
+background-light">
+
+    <section class="cover flex align-items-end">
+
+        <img #coverImage [src]="cover.list[cover.index].getCover()?.image" alt="" class="cover-picture">
+
+        <div class="controller flex align-items-end">
+
+            <div class="title-box flex">
+                <h1 class="title flex align-items-center
+                font-title color-white regular">
+                    {{ cover.list[cover.index].getTitle() }}
+                </h1>
+            </div>
+
+            <span class="flex-auto"></span>
+
+            <div class="navigator flex">
+                <span *ngFor="let selector of cover.list"
+                (click)="onClickInSelect(cover.list.indexOf(selector))"
+
+                [class]="cover.index == cover.list.indexOf(selector) ? 'background-prime-dark' : 'background-light'"
+                class="selector flex pointer"></span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <my-roulette [news]="news"> Notícias Recentes </my-roulette>
+    
+    <my-roulette [news]="news" [tag]="'tag'"> Tag </my-roulette>
+
+</main>

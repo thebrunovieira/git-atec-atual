@@ -1,0 +1,53 @@
+<section id="roulette" class="flex-column">
+
+    <h2 class="roulette-title
+    font-subtitle regular color-prime-dark">
+        <ng-content></ng-content>
+    </h2>
+
+    <div #boxElement class="container-roulette flex align-items-center">
+
+        <!-- preview flex-center
+        background-light background-prime-dark-hover color-prime-dark color-light-hover -->
+        <button (click)="rollPreviews()"
+        [class]="value == -widthNewsitem / 2 ? 'my-button-disabled' : 'my-button'"
+        class="preview
+        prime-dark hover-white">
+            <i class="material-icons"> chevron_left </i>
+        </button>
+
+        <!-- next flex-center
+        background-light background-prime-dark-hover color-prime-dark color-light-hover -->
+        <button (click)="rollNext()"
+        [class]="nextActive ? 'my-button' : 'my-button-disabled'"
+        class="next
+        prime-dark hover-white">
+            <i class="material-icons"> chevron_right </i>
+        </button>
+
+        <div class="content">
+            
+    
+            <div #completeRouletteElement class="newsitem-list flex">
+                
+                <span #newsitemElement *ngFor="let newsitem of news"
+                (click)="newsitem.getID() != -1 ? navigate(newsitem.getID()) : ''"
+                [class]="newsitem.getID() == -1 ? 'newsitem-empty' : 'pointer'"
+                class="newsitem flex align-items-end">
+        
+                    <img *ngIf="newsitem.getID() != -1" [src]="newsitem.getCover()?.image" alt="" class="newsitem-image">
+        
+                    <div *ngIf="newsitem.getID() != -1" class="newsitem-info flex align-items-center
+                    background-prime-dark color-white">
+                        <h3 class="flex-auto font-default"> {{ newsitem.getTitle() }} </h3>
+    
+                        <i class="material-icons"> info </i>
+                    </div>
+        
+                </span>
+        
+            </div>
+        </div>
+    </div>
+
+</section>

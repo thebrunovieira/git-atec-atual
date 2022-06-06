@@ -1,0 +1,21 @@
+<div id="my-input" class="my-input flex align-items-end
+border-{{color}}">
+
+    <label #label for="my-input" class="input-label font-mini
+    color-{{color}}">
+        <ng-content></ng-content>
+    </label>
+
+    <input [type]="visibilityActvate ? 'text' : 'password'"
+    (focus)="onFocus()"
+    (blur)="offFocus()"
+    [autocomplete]="false"
+    [placeholder]="placeholder"
+    class="input flex-auto align-items-end just-content-end
+    font-default color-{{color}} nobackground noborder" (keyup)="onKeyUp($event)">
+    
+    <div (click)="onClick()" class="input-ico-box pointer">
+        <i *ngIf="type == 'password' && get() != ''" class="input-ico material-icons
+        color-{{color}}"> {{ visibilityActvate ? 'visibility' : 'visibility_off' }} </i>
+    </div>
+</div>

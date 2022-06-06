@@ -1,0 +1,30 @@
+/*
+    --------------------------------------------------------------------
+    Material Icons
+*/
+
+.material-icons {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    vertical-align: middle;
+}
+
+// Material Config
+@each $statusName, $status in 'outline' 0, 'fill' 1 {
+    .#{$statusName} {
+        font-variation-settings: 'FILL' #{$status};
+        @each $num in 100, 200, 300, 400, 500, 600, 700 {
+            &-#{$num} { font-variation-settings: 'FILL' #{$status}, 'wght' #{$num}; }
+        }
+    }
+}

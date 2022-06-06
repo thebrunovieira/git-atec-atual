@@ -1,0 +1,63 @@
+@import './colors.scss';
+@import './display.scss';
+@import './font-size.scss';
+@import './material-icons.scss';
+@import './variables.scss';
+
+/*
+    ----------------
+    ---- BUTTON ----
+*/
+
+.my-button {
+    padding: .8rem 2.4rem;
+
+    background-color: transparent;
+    border: solid .1rem;
+
+    transition: all .2s ease-in-out;
+
+    &-disabled {
+        padding: .8rem 2.4rem;
+
+        background-color: transparent;
+        border: solid .1rem;
+
+        opacity: .5;
+        
+        @each $colorName, $color in $colorMap {
+            &.#{$colorName} {
+                border-color: $color; color: $color;
+            }
+        }
+    }
+
+    @each $colorName, $color in $colorMap {
+        &.#{$colorName} {
+            border-color: $color; color: $color;
+            
+            &.hover {
+                &:hover {
+                    background-color: $color;
+                    border-color: $color;
+                }
+
+                @each $hoverColorName, $hoverColor in $colorMap {
+                    &-#{$hoverColorName}:hover {
+                        @extend .hover;
+                        
+                        color: $hoverColor;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@mixin trapezio($height, $color) {
+    height: 0;
+    
+    border-top: solid $height $color;
+    border-right: solid calc($height / 2) transparent;
+}

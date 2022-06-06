@@ -1,0 +1,36 @@
+@import './variables.scss';
+
+$colorMap:
+    'prime' $prime,
+    'prime-dark' $primeDark,
+    'second' $second,
+    'second-dark' $secondDark,
+    'light' $light,
+    'white' #fff;
+
+@mixin insert-style($attName, $att) {
+    @each $colorName, $color in $colorMap {
+        .#{$attName}-#{$colorName} {
+            #{$att}: $color !important;
+
+            &-hover:hover { #{$att}: $color !important; }
+        }
+    }
+}
+
+@include insert-style('background', background-color);
+@include insert-style('color', color);
+@include insert-style('border', border-color);
+@include insert-style('fill', fill);
+@include insert-style('stroke', stroke);
+
+$noMap:
+'background' background-color,
+'color' color,
+'border' border-color,
+'fill' fill,
+'stroke' stroke;
+
+@each $noName, $no in $noMap {
+    .no#{$noName} { #{$no}: transparent; }
+}

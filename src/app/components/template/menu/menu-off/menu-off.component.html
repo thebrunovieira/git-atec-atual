@@ -1,0 +1,64 @@
+<nav id="menu-off" class="flex
+background-prime-dark">
+
+    <ul class="menu-pages flex">
+
+        <li #optionList *ngFor="let option of menu"
+        (mouseover)="onMouseOver(menu.indexOf(option), option)"
+        (mouseleave)="onMouseLeave(menu.indexOf(option), option)" class="option flex
+        background-prime-dark">
+
+            <a [href]="option?.link" [routerLink]="option?.routerLink"
+            class="option-link flex align-items-center
+            font-default color-white">
+                {{ option.name.toUpperCase() }}
+            </a>
+
+            <ul *ngIf="option.sub" class="submenu flex-column align-items-center
+            background-prime-dark">
+
+                <li *ngFor="let suboption of option.sub" class="suboption">
+                    <a [href]="suboption?.link" [routerLink]="suboption.routerLink"
+                    class="suboption-link flex align-items-center
+                    font-default color-white"> {{ suboption.name.toUpperCase() }} </a>
+                </li>
+
+            </ul>
+        </li>
+
+    </ul>
+
+    <span class="flex-auto"></span>
+
+    <ul class="account">
+        <li (click)="onClick()" (mouseleave)="onMouseLeaveAccount()"
+        class="option flex just-content-end">
+            <div class="option-box flex align-items-center pointer
+            font-default color-white">
+                <a class="option-link config flex-center
+                font-default">CONTA</a>
+                <span class="image-profile-box flex-center
+                background-second">
+                    <img src="/assets/IMG/image-profile-default/profile_default.svg" alt="" class="image-profile">
+                </span>
+            </div>
+
+            <ul #accountMenu class="submenu flex-column
+            background-prime-dark">
+
+                <li *ngFor="let suboption of menuAccount" class="suboption flex">
+                    <a [href]="suboption?.link" [target]="suboption.link ? '_blank' : ''"
+                    [routerLink]="suboption?.routerLink"
+                    class="suboption-link flex align-items-center just-content-end
+                    font-default color-white">
+                        <i *ngIf="suboption.ico" class="material-icons"> {{ suboption?.ico }} </i>
+                        {{ suboption.name.toUpperCase() }}
+                    </a>
+                </li>
+
+            </ul>
+
+        </li>
+    </ul>
+
+</nav>

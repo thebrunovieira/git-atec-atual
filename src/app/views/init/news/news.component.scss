@@ -1,0 +1,70 @@
+@import '/src/style/template.scss';
+
+#news {
+    width: 100%;
+    height: 100vh;
+
+    box-sizing: border-box;
+    padding: 0 8rem;
+
+    .cover {
+        position: relative;
+
+        width: 100%;
+        height: 35vh;
+
+        margin-top: 2.4rem;
+
+        .cover-picture {
+            position: absolute;
+            z-index: 1;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .controller {
+            height: 100%;
+            width: 100%;
+            z-index: 2;
+
+            box-sizing: border-box;
+            padding-bottom: 2.4rem;
+
+            background-color: mix($light, #ffffff00, 30%);
+
+            .title-box {
+                position: relative;
+
+                padding: 0 2.4rem;
+
+                @include trapezio(4rem, $primeDark);
+
+                .title {
+                    height: 4rem;
+
+                    transform: translateY(-100%);
+                }
+            }
+
+            .navigator {
+                gap: .8rem;
+
+                margin-right: 1.6rem;
+
+                .selector {
+                    width: 1.6rem;
+                    height: 1.6rem;
+
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    my-roulette {
+        margin: 1.6rem 0;
+    }
+}

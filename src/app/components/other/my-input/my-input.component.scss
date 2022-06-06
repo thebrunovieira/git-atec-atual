@@ -1,0 +1,35 @@
+@import '/src/style/template.scss';
+
+#my-input {
+    position: relative;
+    height: 4rem;
+    
+    border-bottom: solid .1rem;
+    
+    .input-label {
+        position: absolute;
+
+        padding: 0 1.2rem;
+
+        transition: transform .1s ease-in-out;
+    }
+
+    .input {
+        padding: 0 1.2rem;
+        
+        &::placeholder {
+            color: transparent;
+
+            transition: color .3s ease-in-out;
+        }
+        
+        &:focus {
+            outline: none;
+
+            &::placeholder {
+                color: $placeholder;
+            }
+        }
+
+    }
+}

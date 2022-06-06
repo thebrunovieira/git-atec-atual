@@ -1,0 +1,19 @@
+.flex {
+    display: flex;
+
+    &-column { @extend .flex; flex-direction: column; }
+
+    &-auto { @extend .flex; flex: auto; }
+
+    &-center { @extend .flex; align-items: center; justify-content: center; }
+}
+
+$postionMap:
+'center' center,
+'start' flex-start,
+'end' flex-end;
+@each $attName, $att in ('align-items' align-items, 'just-content' justify-content) {
+    @each $positionName, $position in $postionMap {
+        .#{$attName}-#{$positionName} { #{$att}: $position }
+    }
+}
